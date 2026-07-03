@@ -1,0 +1,238 @@
+{
+  "1": {
+    "inputs": {
+      "ckpt_name": "sd_xl_base_1.0.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Stage 1 - Load SDXL Base"
+    }
+  },
+  "2": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent"
+    }
+  },
+  "3": {
+    "inputs": {
+      "text": "An inverted-amphora glass terrarium in a spiral brass framework standing on a carved stone plinth, filled with a soft indigo-violet glow. Small vials of glowing emerald and crimson liquid flank the plinth. Dark rich lighting, complex glass reflections, dark academia mood, photorealistic fantasy prop photography.",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Stage 1 - Exterior Positive"
+    }
+  },
+  "4": {
+    "inputs": {
+      "text": "cartoon, sketch, low detail, overexposed, modern setting, plain glass, aquarium, fish tank, UI elements, watermark, extra text",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Stage 1 - Negative"
+    }
+  },
+  "5": {
+    "inputs": {
+      "seed": 108120250493019,
+      "steps": 25,
+      "cfg": 8,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1.0,
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "3",
+        0
+      ],
+      "negative": [
+        "4",
+        0
+      ],
+      "latent_image": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Stage 1 - Generate Object"
+    }
+  },
+  "6": {
+    "inputs": {
+      "samples": [
+        "5",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Stage 1 - Decode"
+    }
+  },
+  "7": {
+    "inputs": {
+      "filename_prefix": "catalog_012_stage1",
+      "images": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Stage 1 (for comparison)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "image": [
+        "6",
+        0
+      ],
+      "text": "the glowing interior of the glass terrarium",
+      "blur": 7,
+      "threshold": 0.4,
+      "dilation_factor": 4
+    },
+    "class_type": "CLIPSeg",
+    "_meta": {
+      "title": "Stage 2 - CLIPSeg Interior Mask"
+    }
+  },
+  "9": {
+    "inputs": {
+      "ckpt_name": "juggernautXL_versionXInpaint.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Stage 2 - Load Juggernaut Inpaint"
+    }
+  },
+  "10": {
+    "inputs": {
+      "text": "A lush miniature ecosystem of glowing deep indigo and violet bioluminescent fungi and mushrooms woven through polished brass clockwork gears, a pulsing amethyst crystal cluster gripped by a delicate brass clockwork claw at the center, fine mycelium threads catching the light, hyper-detailed macro miniature, sharp focus",
+      "clip": [
+        "9",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Stage 2 - Interior Positive"
+    }
+  },
+  "11": {
+    "inputs": {
+      "text": "empty space, plain glow, coral, fish, water, blurry, low detail, cartoon, text, watermark",
+      "clip": [
+        "9",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Stage 2 - Interior Negative"
+    }
+  },
+  "12": {
+    "inputs": {
+      "pixels": [
+        "6",
+        0
+      ],
+      "vae": [
+        "9",
+        2
+      ],
+      "mask": [
+        "8",
+        0
+      ],
+      "grow_mask_by": 6
+    },
+    "class_type": "VAEEncodeForInpaint",
+    "_meta": {
+      "title": "Stage 2 - Encode For Inpaint"
+    }
+  },
+  "13": {
+    "inputs": {
+      "seed": 108120250493019,
+      "steps": 25,
+      "cfg": 7,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 0.75,
+      "model": [
+        "9",
+        0
+      ],
+      "positive": [
+        "10",
+        0
+      ],
+      "negative": [
+        "11",
+        0
+      ],
+      "latent_image": [
+        "12",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Stage 2 - Inpaint Interior"
+    }
+  },
+  "14": {
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ],
+      "vae": [
+        "9",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "Stage 2 - Decode"
+    }
+  },
+  "15": {
+    "inputs": {
+      "filename_prefix": "catalog_012",
+      "images": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Final"
+    }
+  }
+}

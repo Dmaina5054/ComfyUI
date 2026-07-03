@@ -1,0 +1,37 @@
+{
+  "catalog_name": "image_catalog",
+  "version": "1.0",
+  "created": "2026-07-03",
+  "entries": [
+    {
+      "id": "001",
+      "filename": "brass_galaxy_globe_001.png",
+      "name": "Steampunk Celestial Orrery",
+      "category": "steampunk-object",
+      "tags": [
+        "steampunk",
+        "orrery",
+        "brass",
+        "nebula",
+        "clockwork",
+        "fantasy-object",
+        "glass-sphere",
+        "dark-academia"
+      ],
+      "description": "A brass clockwork cityscape of gears, spires, and a clock face rising from a purple nebula starfield inside a glass sphere, mounted on an ornate brass tripod stand amid dark mineral gravel, with blurred leather-bound books in the background.",
+      "attributes": {
+        "dominant_colors": ["purple", "brass-gold", "deep-blue", "black"],
+        "lighting": "moody, low-key, dark academia",
+        "composition": "centered subject, shallow depth of field",
+        "style": "steampunk / fantasy prop photography"
+      },
+      "provenance": {
+        "date_added": "2026-07-03",
+        "source": "user-upload",
+        "original_path": "/mnt/user-data/uploads/1783107643443_image.png"
+      },
+      "training_ready": true,
+      "embedding": null
+    }
+  ]
+}

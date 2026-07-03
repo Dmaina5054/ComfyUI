@@ -1,0 +1,8 @@
+# Generated images are large binaries — track catalogs/manifests/workflows, not renders.
+# Remove these lines if you want images versioned too (consider git-lfs for that).
+images/
+training/*.png
+connection_test_output.png
+__pycache__/
+*.pyc
+venv/

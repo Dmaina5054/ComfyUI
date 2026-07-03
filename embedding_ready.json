@@ -1,0 +1,18 @@
+{
+  "note": "This is the schema shape used by vector databases (Qdrant, Pinecone, pgvector, Chroma) for image similarity search / RAG. The 'vector' field is a placeholder — a real embedding requires running the image through a model (e.g. CLIP) which needs a GPU/model runtime this environment doesn't have. Your Qdrant setup or LM Studio rig can generate this.",
+  "collection": "image_catalog",
+  "points": [
+    {
+      "id": "001",
+      "payload": {
+        "filename": "brass_galaxy_globe_001.png",
+        "name": "Steampunk Celestial Orrery",
+        "category": "steampunk-object",
+        "tags": ["steampunk", "orrery", "brass", "nebula", "clockwork", "fantasy-object", "glass-sphere", "dark-academia"],
+        "description": "A brass clockwork cityscape of gears, spires, and a clock face rising from a purple nebula starfield inside a glass sphere, mounted on an ornate brass tripod stand amid dark mineral gravel, with blurred leather-bound books in the background."
+      },
+      "vector": null,
+      "vector_model_suggested": "CLIP ViT-L/14 (image embedding) or clip-ViT-B-32"
+    }
+  ]
+}

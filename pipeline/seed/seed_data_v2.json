@@ -1,0 +1,47 @@
+{
+  "seed_batch_name": "celestial_clockwork_batch_002_v2",
+  "version": "2.0",
+  "notes": "v2 restructure based on batch_001 results: both 002 and 003 drifted from 'bottle' to 'globe/display piece' and lost the interior orrery, label, and cork/seal entirely. Root cause: prompts were several hundred tokens of prose; SDXL's CLIP encoding heavily dilutes content past ~75 tokens, so the tail (where the specific details lived) barely influenced the image. v2 rule: the subject, its defining shape, and the 2-3 must-have details go in the FIRST sentence. Style/lighting/mood compressed into short comma phrases. Total target under ~120 tokens. Entry ids continue from v1 (007+) so both batches coexist in one catalog for direct comparison.",
+  "entries": [
+    {
+      "id": "007",
+      "name": "Celestial Potion Bottle v2",
+      "category": "steampunk-object",
+      "tags": ["steampunk", "clockwork", "alchemical", "bottle", "orrery", "cork-seal", "v2-frontloaded"],
+      "seed": 108120250493018,
+      "compare_to": "003",
+      "positive_prompt": "A single glass potion bottle with a cork stopper sealed in dark wax, a brass clockwork gear assembly around its neck, and an aged parchment label on its body. Inside the swirling indigo-violet liquid, a tiny brass orrery with a glowing golden orb. Centered on a weathered wooden plank, blurred sunset meadow background, golden hour light, internal violet-gold glow, photorealistic fantasy prop photography, intricate detail.",
+      "negative_prompt": "globe, sphere on a stand, terrarium, display case, cartoon, sketch, low detail, overexposed, modern setting, UI elements, arrows, buttons, watermark, extra text"
+    },
+    {
+      "id": "008",
+      "name": "Bioluminescent Clockwork Terrarium v2",
+      "category": "steampunk-object",
+      "tags": ["steampunk", "clockwork", "terrarium", "bioluminescent", "amethyst", "v2-frontloaded"],
+      "seed": 108120250493019,
+      "compare_to": "004",
+      "positive_prompt": "An inverted-amphora glass terrarium in a spiral brass framework on a carved stone plinth, filled with glowing indigo and violet bioluminescent fungi woven through brass clockwork gears, a pulsing amethyst crystal cluster gripped by a clockwork claw at its core. Small vials of glowing emerald and crimson liquid flank the plinth. Dark rich lighting from the bioluminescence, complex glass reflections, dark academia mood, photorealistic fantasy prop photography.",
+      "negative_prompt": "cartoon, sketch, low detail, overexposed, modern setting, plain glass, aquarium, fish tank, UI elements, arrows, buttons, watermark, extra text"
+    },
+    {
+      "id": "009",
+      "name": "Solar Clockwork Reliquary v2",
+      "category": "steampunk-object",
+      "tags": ["steampunk", "clockwork", "reliquary", "gold", "amber", "warm-palette", "v2-frontloaded"],
+      "seed": 108120250493020,
+      "compare_to": "005",
+      "positive_prompt": "A brass and gold clockwork reliquary globe on an engraved bronze tripod, containing a miniature sunlit citadel with gold filigree gear-wrapped spires rising from amber crystal and crimson mineral dust, a glowing amber-gold core at its center. Crimson gemstones set into the tripod feet, warm rim lighting, golden-hour glow, dark warm background, intricate engraved brass, photorealistic fantasy prop photography.",
+      "negative_prompt": "cool color palette, blue tones, cartoon, sketch, low detail, overexposed, modern setting, UI elements, arrows, buttons, watermark, extra text"
+    },
+    {
+      "id": "010",
+      "name": "Clockwork Nebula Macro Detail v2",
+      "category": "steampunk-object",
+      "tags": ["steampunk", "clockwork", "nebula", "macro", "close-up", "v2-frontloaded"],
+      "seed": 108120250493021,
+      "compare_to": "006",
+      "positive_prompt": "Extreme macro close-up of brass clockwork gear teeth and engraved filigree embedded in a glass sphere, a purple-blue nebula softly blurred behind the glass. Individual rivets and gear teeth in razor-sharp focus, strong shallow depth of field, cool blue backlight against warm brass reflections, fine dust particles catching light, hyper-realistic texture, photorealistic fantasy prop photography.",
+      "negative_prompt": "wide shot, full object visible, cartoon, sketch, low detail, overexposed, modern setting, UI elements, arrows, buttons, watermark, extra text"
+    }
+  ]
+}

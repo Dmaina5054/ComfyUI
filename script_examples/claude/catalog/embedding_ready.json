@@ -1,0 +1,108 @@
+{
+  "collection": "image_catalog",
+  "points": [
+    {
+      "id": "002",
+      "payload": {
+        "filename": "002_celestial_potion_bottle_raw.png",
+        "name": "Celestial Potion Bottle (raw)",
+        "category": "steampunk-object",
+        "tags": [
+          "steampunk",
+          "clockwork",
+          "alchemical",
+          "bottle",
+          "orrery",
+          "nebula",
+          "bioluminescent",
+          "terrarium",
+          "raw-prompt-has-ui-artifacts"
+        ],
+        "description": "An ornate, clockwork alchemical bottle containing a detailed cosmic and mechanical scene, standing on a dark weathered wooden surface. Composition: Central Object: One highly detailed, single glass bottle, perfectly centered, resting on a rustic, dark-grained wooden plank or log. Perspective: Ground-level eye-line with the bottle, which stands prominent against a gently blurred natural landscape a"
+      },
+      "vector": null,
+      "vector_model_suggested": "CLIP ViT-L/14 (image embedding)"
+    },
+    {
+      "id": "003",
+      "payload": {
+        "filename": "003_celestial_potion_bottle.png",
+        "name": "Celestial Potion Bottle",
+        "category": "steampunk-object",
+        "tags": [
+          "steampunk",
+          "clockwork",
+          "alchemical",
+          "bottle",
+          "orrery",
+          "nebula",
+          "bioluminescent",
+          "terrarium"
+        ],
+        "description": "An ornate clockwork alchemical bottle containing a detailed cosmic and mechanical scene, standing on a dark weathered wooden surface. A uniquely shaped glass potion bottle with swirling dark blue and purple liquid, a dark wax seal with a complex celestial crest wrapped in miniature brass and copper clockwork gears, an interwoven copper and bronze cage with gear accents, and an aged parchment label"
+      },
+      "vector": null,
+      "vector_model_suggested": "CLIP ViT-L/14 (image embedding)"
+    },
+    {
+      "id": "004",
+      "payload": {
+        "filename": "004_bioluminescent_clockwork_terrarium.png",
+        "name": "Bioluminescent Clockwork Terrarium",
+        "category": "steampunk-object",
+        "tags": [
+          "steampunk",
+          "clockwork",
+          "terrarium",
+          "bioluminescent",
+          "amethyst",
+          "mycology",
+          "brass"
+        ],
+        "description": "A complex multi-tiered bioluminescent terrarium and clockwork mycology ecosystem, standing on a carved stone plinth against a dark background. A hand-blown glass terrarium shaped like an inverted ancient amphora, wrapped in a recursive spiral brass framework. Inside, a lush miniature landscape of glowing deep indigo and violet bioluminescent fungi integrated with polished brass and oxidized copper"
+      },
+      "vector": null,
+      "vector_model_suggested": "CLIP ViT-L/14 (image embedding)"
+    },
+    {
+      "id": "005",
+      "payload": {
+        "filename": "005_solar_clockwork_reliquary.png",
+        "name": "Solar Clockwork Reliquary",
+        "category": "steampunk-object",
+        "tags": [
+          "steampunk",
+          "clockwork",
+          "reliquary",
+          "gold",
+          "crimson",
+          "amber",
+          "brass"
+        ],
+        "description": "An ornate brass and gold clockwork reliquary globe standing on an engraved bronze tripod, set against a dark warm background. Inside a hand-blown glass dome, a miniature sunlit clockwork citadel rises from a bed of amber crystal and warm crimson mineral dust, its spires wrapped in fine gold filigree gears. A pulsing amber-gold core glows at the center, casting warm reflections through the glass. I"
+      },
+      "vector": null,
+      "vector_model_suggested": "CLIP ViT-L/14 (image embedding)"
+    },
+    {
+      "id": "006",
+      "payload": {
+        "filename": "006_clockwork_nebula_macro_detail.png",
+        "name": "Clockwork Nebula Macro Detail",
+        "category": "steampunk-object",
+        "tags": [
+          "steampunk",
+          "clockwork",
+          "nebula",
+          "macro",
+          "close-up",
+          "brass",
+          "glass"
+        ],
+        "description": "Extreme close-up macro detail of a brass clockwork mechanism embedded in a glass sphere filled with a swirling purple and blue nebula. Individual gear teeth, tiny rivets, and engraved brass filigree are visible in sharp focus, with the nebula softly out of focus behind the glass, creating strong shallow depth of field. Cool blue backlight mixed with warm brass reflections, fine particulate dust ca"
+      },
+      "vector": null,
+      "vector_model_suggested": "CLIP ViT-L/14 (image embedding)"
+    }
+  ]
+}

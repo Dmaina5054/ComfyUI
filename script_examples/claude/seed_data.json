@@ -1,0 +1,51 @@
+{
+  "seed_batch_name": "celestial_clockwork_batch_001",
+  "notes": "Variant 002 is the prompt exactly as provided by the user, kept unedited for reference. It contains leftover UI-artifact phrasing ('navigation arrows', 'X and Run buttons', 'full-screen view') that risks rendering literally as UI elements in the image — flagged, not fixed, per user's original text. Variant 003 is the same concept with that language stripped and a negative-prompt guard added. Variants 004-006 branch into new compositions using the same steampunk/celestial vocabulary established in entry 001 (brass_galaxy_globe_001.png).",
+  "entries": [
+    {
+      "id": "002",
+      "name": "Celestial Potion Bottle (raw)",
+      "category": "steampunk-object",
+      "tags": ["steampunk", "clockwork", "alchemical", "bottle", "orrery", "nebula", "bioluminescent", "terrarium", "raw-prompt-has-ui-artifacts"],
+      "seed": 108120250493017,
+      "positive_prompt": "An ornate, clockwork alchemical bottle containing a detailed cosmic and mechanical scene, standing on a dark weathered wooden surface. Composition: Central Object: One highly detailed, single glass bottle, perfectly centered, resting on a rustic, dark-grained wooden plank or log. Perspective: Ground-level eye-line with the bottle, which stands prominent against a gently blurred natural landscape and sunset background. Background: An expansive, out-of-focus meadow with tall grasses and low bushes under a soft, golden-to-purple twilight sky with dramatic clouds. Bottle Exterior Details: Glass Potion Bottle: A uniquely shaped glass bottle with a clear body and integrated, swirling dark blue and purple liquid. Cork and Seal: dark wax seal with a complex celestial crest wrapped in miniature brass and copper clockwork gears, small chain draped from the seal. Metalwork Cage: interwoven copper, brass, and bronze cage with gear accents. Center Label: aged handwritten parchment label reading 'Celestial Potion' and 'Temporal Shift' framed by clockwork borders. Bottle Interior: a detailed miniature clockwork universe with a central copper and brass orrery, tiny glowing golden orb, miniature copper observatory tower, tiny trees and hills, deep purple-indigo night sky with swirling galaxies and a visible spiral galaxy. Lighting: soft golden hour light from the background sunset, internal magical luminescence from the orrery and galaxy glowing gold and violet-blue, subtle glints on metal and glass. A complex multi-tiered bioluminescent terrarium and mycobotany clockwork ecosystem, hand-blown glass terrarium shaped like an inverted ancient amphora with recursive spiral brass framework, glowing indigo and violet bioluminescent fungi integrated with brass and oxidized copper clockwork mechanisms, a pulsing amethyst crystal cluster held by a delicate clockwork claw at its core, standing on a carved stone plinth, matching smaller vials with glowing emerald green and deep crimson liquid on either side. The large white navigation arrows are still present on the sides of the view area, and the small 'X' and 'Run' buttons are outside the view area on the dark background. The entire scene is rich with textures: aged brass, weathered stone, and delicate glass. The perspective is correct for the full-screen view",
+      "negative_prompt": "Cartoon, sketch, low detail, overexposed, modern setting, generic bottle, plain liquid, text, logos (beyond the label)."
+    },
+    {
+      "id": "003",
+      "name": "Celestial Potion Bottle",
+      "category": "steampunk-object",
+      "tags": ["steampunk", "clockwork", "alchemical", "bottle", "orrery", "nebula", "bioluminescent", "terrarium"],
+      "seed": 108120250493018,
+      "positive_prompt": "An ornate clockwork alchemical bottle containing a detailed cosmic and mechanical scene, standing on a dark weathered wooden surface. A uniquely shaped glass potion bottle with swirling dark blue and purple liquid, a dark wax seal with a complex celestial crest wrapped in miniature brass and copper clockwork gears, an interwoven copper and bronze cage with gear accents, and an aged parchment label reading 'Celestial Potion' and 'Temporal Shift' in clockwork borders. Inside the liquid, a miniature clockwork universe: a detailed copper and brass orrery with a glowing golden orb at its center, a tiny copper observatory tower, miniature trees and hills, and a deep purple-indigo night sky full of swirling galaxies and a visible spiral galaxy. Soft golden hour light from a blurred sunset meadow background, internal magical luminescence glowing gold and violet-blue, subtle glints on brass and glass, dramatic clouds, dark academia mood, photorealistic fantasy prop photography.",
+      "negative_prompt": "Cartoon, sketch, low detail, overexposed, modern setting, generic bottle, plain liquid, extra text, logos, UI elements, navigation arrows, buttons, on-screen overlays, watermark."
+    },
+    {
+      "id": "004",
+      "name": "Bioluminescent Clockwork Terrarium",
+      "category": "steampunk-object",
+      "tags": ["steampunk", "clockwork", "terrarium", "bioluminescent", "amethyst", "mycology", "brass"],
+      "seed": 108120250493019,
+      "positive_prompt": "A complex multi-tiered bioluminescent terrarium and clockwork mycology ecosystem, standing on a carved stone plinth against a dark background. A hand-blown glass terrarium shaped like an inverted ancient amphora, wrapped in a recursive spiral brass framework. Inside, a lush miniature landscape of glowing deep indigo and violet bioluminescent fungi integrated with polished brass and oxidized copper clockwork mechanisms and tiny interlocking gears. At its core, a pulsing amethyst crystal cluster held by a delicate clockwork claw. On the plinth to either side, smaller matching glass vials glow with emerald green and deep crimson liquid on miniature brass stands. Lighting is dark and rich, driven by the bioluminescence and a deep-space glow behind the terrarium, casting complex reflections across the glass and brass. Dark academia atmosphere, intricate engraved detail, photorealistic fantasy prop photography.",
+      "negative_prompt": "Cartoon, sketch, low detail, overexposed, modern setting, plain glass, extra text, logos, UI elements, navigation arrows, buttons, on-screen overlays, watermark."
+    },
+    {
+      "id": "005",
+      "name": "Solar Clockwork Reliquary",
+      "category": "steampunk-object",
+      "tags": ["steampunk", "clockwork", "reliquary", "gold", "crimson", "amber", "brass"],
+      "seed": 108120250493020,
+      "positive_prompt": "An ornate brass and gold clockwork reliquary globe standing on an engraved bronze tripod, set against a dark warm background. Inside a hand-blown glass dome, a miniature sunlit clockwork citadel rises from a bed of amber crystal and warm crimson mineral dust, its spires wrapped in fine gold filigree gears. A pulsing amber-gold core glows at the center, casting warm reflections through the glass. Intricate engraved brass detailing along the base, small crimson gemstones set into the tripod feet, dramatic warm rim lighting, dark academia mood with a golden-hour glow instead of cool tones, photorealistic fantasy prop photography.",
+      "negative_prompt": "Cartoon, sketch, low detail, overexposed, modern setting, cool color palette, extra text, logos, UI elements, navigation arrows, buttons, on-screen overlays, watermark."
+    },
+    {
+      "id": "006",
+      "name": "Clockwork Nebula Macro Detail",
+      "category": "steampunk-object",
+      "tags": ["steampunk", "clockwork", "nebula", "macro", "close-up", "brass", "glass"],
+      "seed": 108120250493021,
+      "positive_prompt": "Extreme close-up macro detail of a brass clockwork mechanism embedded in a glass sphere filled with a swirling purple and blue nebula. Individual gear teeth, tiny rivets, and engraved brass filigree are visible in sharp focus, with the nebula softly out of focus behind the glass, creating strong shallow depth of field. Cool blue backlight mixed with warm brass reflections, fine particulate dust catching the light, hyper-realistic textures, dark academia mood, photorealistic fantasy prop photography.",
+      "negative_prompt": "Cartoon, sketch, low detail, overexposed, modern setting, wide shot, extra text, logos, UI elements, navigation arrows, buttons, on-screen overlays, watermark."
+    }
+  ]
+}

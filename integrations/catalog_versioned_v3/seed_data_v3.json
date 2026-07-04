@@ -1,0 +1,46 @@
+{
+  "seed_batch_name": "celestial_clockwork_batch_003_v3_inpaint",
+  "version": "3.0",
+  "notes": "v3 = two-stage generation. Learning from v2 (007): front-loading recovered the bottle/cork/gears, but the interior orrery mechanism and any fine interior detail still lose the competition for prompt attention against the exterior. v3 gives the interior its OWN full prompt budget: stage 1 (SDXL base) renders the vessel exterior with a deliberately simple interior ('glowing swirling liquid' only), then CLIPSeg masks the glass interior region and juggernautXL_versionXInpaint repaints just that region at denoise 0.75 with a dedicated interior prompt. Each entry now has: positive_prompt (exterior), mask_prompt (what CLIPSeg finds), interior_prompt + interior_negative (stage 2). Both stage-1 and final images are saved (suffix _stage1) for before/after comparison. DEPENDENCY: requires the ComfyUI-CLIPSeg custom node (same one used in the Kioo staging pipeline). Uses base + Juggernaut inpaint only — refiner dropped to avoid cycling three checkpoints through 12GB VRAM.",
+  "entries": [
+    {
+      "id": "011",
+      "name": "Celestial Potion Bottle v3",
+      "category": "steampunk-object",
+      "tags": ["steampunk", "clockwork", "alchemical", "bottle", "orrery", "two-stage", "v3-inpaint"],
+      "seed": 108120250493018,
+      "compare_to": "007",
+      "positive_prompt": "A single glass potion bottle with a cork stopper sealed in dark wax, a brass clockwork gear collar around its neck, and an aged parchment label on its body, filled with glowing swirling indigo-violet liquid. Centered on a weathered wooden plank, blurred sunset meadow background, golden hour light, photorealistic fantasy prop photography, intricate detail.",
+      "negative_prompt": "globe, sphere on a stand, terrarium, display case, cartoon, sketch, low detail, overexposed, modern setting, UI elements, watermark, extra text",
+      "mask_prompt": "the glowing liquid inside the glass bottle",
+      "interior_prompt": "A miniature brass clockwork orrery submerged in glowing indigo-violet liquid, tiny interlocking gears and planetary rings orbiting a small radiant golden orb, swirling galaxy and star specks in the fluid around it, warm gold and cool violet internal glow, hyper-detailed miniature mechanism, sharp focus",
+      "interior_negative": "empty liquid, plain glow, blurry, low detail, cartoon, text, watermark"
+    },
+    {
+      "id": "012",
+      "name": "Bioluminescent Clockwork Terrarium v3",
+      "category": "steampunk-object",
+      "tags": ["steampunk", "clockwork", "terrarium", "bioluminescent", "two-stage", "v3-inpaint"],
+      "seed": 108120250493019,
+      "compare_to": "008",
+      "positive_prompt": "An inverted-amphora glass terrarium in a spiral brass framework standing on a carved stone plinth, filled with a soft indigo-violet glow. Small vials of glowing emerald and crimson liquid flank the plinth. Dark rich lighting, complex glass reflections, dark academia mood, photorealistic fantasy prop photography.",
+      "negative_prompt": "cartoon, sketch, low detail, overexposed, modern setting, plain glass, aquarium, fish tank, UI elements, watermark, extra text",
+      "mask_prompt": "the glowing interior of the glass terrarium",
+      "interior_prompt": "A lush miniature ecosystem of glowing deep indigo and violet bioluminescent fungi and mushrooms woven through polished brass clockwork gears, a pulsing amethyst crystal cluster gripped by a delicate brass clockwork claw at the center, fine mycelium threads catching the light, hyper-detailed macro miniature, sharp focus",
+      "interior_negative": "empty space, plain glow, coral, fish, water, blurry, low detail, cartoon, text, watermark"
+    },
+    {
+      "id": "013",
+      "name": "Solar Clockwork Reliquary v3",
+      "category": "steampunk-object",
+      "tags": ["steampunk", "clockwork", "reliquary", "gold", "amber", "two-stage", "v3-inpaint"],
+      "seed": 108120250493020,
+      "compare_to": "009",
+      "positive_prompt": "A brass and gold clockwork reliquary globe on an engraved bronze tripod with crimson gemstones set into the feet, the glass dome filled with a warm amber glow. Warm rim lighting, golden-hour tones, dark warm background, intricate engraved brass, photorealistic fantasy prop photography.",
+      "negative_prompt": "cool color palette, blue tones, cartoon, sketch, low detail, overexposed, modern setting, UI elements, watermark, extra text",
+      "mask_prompt": "the glowing interior of the glass dome",
+      "interior_prompt": "A miniature sunlit clockwork citadel with gold filigree gear-wrapped spires rising from amber crystal formations and crimson mineral dust, a radiant amber-gold core glowing at its heart, tiny engraved brass architecture, hyper-detailed miniature, sharp focus",
+      "interior_negative": "empty glow, plain light, blue tones, blurry, low detail, cartoon, text, watermark"
+    }
+  ]
+}

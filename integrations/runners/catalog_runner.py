@@ -95,7 +95,30 @@ def queue_prompt(server: str, workflow: dict, client_id: str) -> str:
     return resp.json()["prompt_id"]
 
 
-def wait_for_result(server: str, prompt_id: str, poll_interval=2, timeout=600):
+def find_target_node_id(workflow: dict, entry_id: str) -> str:
+    """The 'real' final output is the SaveImage node whose filename_prefix
+    is the bare 'catalog_{id}' with no suffix — stage1/_mask/etc variants
+    always have a suffix appended. Resolved by contract, not by execution
+    order (which is unreliable — see wait_for_result)."""
+    expected_prefix = f"catalog_{entry_id}"
+    matches = [
+        node_id for node_id, node in workflow.items()
+        if isinstance(node, dict)
+        and node.get("class_type") == "SaveImage"
+        and node.get("inputs", {}).get("filename_prefix") == expected_prefix
+    ]
+    if len(matches) != 1:
+        raise SystemExit(
+            f"Expected exactly one SaveImage node with filename_prefix "
+            f"'{expected_prefix}' (no suffix) for entry '{entry_id}', "
+            f"found {len(matches)}: {matches}. Check the workflow template "
+            f"for missing/duplicate bare-prefix SaveImage nodes."
+        )
+    return matches[0]
+
+
+def wait_for_result(server: str, prompt_id: str, target_node_id: str,
+                    poll_interval=2, timeout=600):
     elapsed = 0
     while elapsed < timeout:
         resp = requests.get(f"http://{server}/history/{prompt_id}", timeout=30)
@@ -106,13 +129,16 @@ def wait_for_result(server: str, prompt_id: str, poll_interval=2, timeout=600):
             if status.get("status_str") == "error":
                 raise RuntimeError(f"Generation errored: {status}")
             outputs = history[prompt_id]["outputs"]
-            for node_output in outputs.values():
-                if "images" in node_output:
-                    img = node_output["images"][0]
-                    return img["filename"], img["subfolder"], img["type"]
+            if target_node_id in outputs and "images" in outputs[target_node_id]:
+                img = outputs[target_node_id]["images"][0]
+                return img["filename"], img["subfolder"], img["type"]
+            # else: execution still in progress or target node hasn't
+            # produced output yet — keep polling until timeout.
         time.sleep(poll_interval)
         elapsed += poll_interval
-    raise TimeoutError(f"Timed out waiting for prompt {prompt_id}")
+    raise TimeoutError(
+        f"Timed out waiting for node {target_node_id}'s output on prompt {prompt_id}"
+    )
 
 
 def fetch_image(server: str, filename: str, subfolder: str, image_type: str) -> bytes:
@@ -311,8 +337,9 @@ def main():
     for entry in seed_data["entries"]:
         print(f"Generating: {entry['name']} (id {entry['id']}, seed {entry['seed']})")
         workflow = load_workflow(workflow_path, entry)
+        target_node_id = find_target_node_id(workflow, entry["id"])
         prompt_id = queue_prompt(args.server, workflow, client_id)
-        filename, subfolder, image_type = wait_for_result(args.server, prompt_id)
+        filename, subfolder, image_type = wait_for_result(args.server, prompt_id, target_node_id)
         image_bytes = fetch_image(args.server, filename, subfolder, image_type)
         register_in_catalog(catalog_dir, entry, image_bytes, batch_name, workflow_path.name)
         done_ids.append(entry["id"])

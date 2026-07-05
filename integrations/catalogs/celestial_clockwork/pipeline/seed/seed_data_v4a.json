@@ -1,0 +1,40 @@
+{
+  "version": "4a",
+  "description": "V4a label-swap pipeline: Replace 'Aetherium Cosmica' with 'MINAS-TIRITH' on paper label using CLIPSeg mask + Flux1DevFp8 inpaint",
+  "setup_note": "Image location: /home/frodo/Projects/aifoss/comfyui/input/bowl/text_replace.jpeg - Outside default ComfyUI input folder. Requires symlink or copy to input/bowl/ directory.",
+  "setup_instructions": [
+    "Option 1 (symlink): ln -s /home/frodo/Projects/aifoss/comfyui/input/bowl/text_replace.jpeg ./input/bowl/text_replace.jpeg",
+    "Option 2 (copy): cp /home/frodo/Projects/aifoss/comfyui/input/bowl/text_replace.jpeg ./input/bowl/text_replace.jpeg",
+    "Option 3 (absolute path in runner): Modify catalog_runner.py to accept absolute paths"
+  ],
+  "test_cases": [
+    {
+      "id": "001",
+      "name": "bowl_text_replace_aetherium_to_minas_tirith",
+      "input_image": "bowl/text_replace.jpeg",
+      "input_image_absolute": "/home/frodo/Projects/aifoss/comfyui/input/bowl/text_replace.jpeg",
+      "mask_prompt": "parchment label",
+      "denoise": 0.65,
+      "replacement_text": "MINAS-TIRITH",
+      "model": "flux1DevFp8",
+      "interior_prompt": "A weathered parchment label with the text 'MINAS-TIRITH' written in elegant black ink, cosmic theme.",
+      "threshold": 0.5,
+      "expected_output": "bowl_text_replace_minas_tirith_v4a.png",
+      "notes": "CLIPSeg isolates paper label. Denoise 0.65 wipes old text while preserving paper texture. Flux excels at accurate text generation."
+    }
+  ],
+  "parameters": {
+    "clipseg": {
+      "model": "CIDAS/clipseg-saliency",
+      "device": "cuda"
+    },
+    "inpaint": {
+      "denoise_min": 0.60,
+      "denoise_target": 0.65,
+      "denoise_max": 0.70,
+      "reason": "0.60 too low (traces old text), 0.70+ erases paper entirely, 0.65 is sweet spot"
+    },
+    "flux_checkpoint": "flux1DevFp8.safetensors",
+    "vae": "ae.sft"
+  }
+}
